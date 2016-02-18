@@ -1,3 +1,16 @@
+$(document).ready(function(){
+  $('.bar-tab').on('click','.tab-item',function(e){
+    if(this.classList.contains('active'))return;
+    // console.log(this.dataset.type)
+    $('.tab-item.active').removeClass('active')
+    this.classList.add('active')
+    $(".foot-content.active").removeClass('active');
+    $(".foot-content[data-type="+this.dataset.type+"]").addClass('active');
+  })
+})
+
+
+
 wx.ready(function () {
   // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
   document.querySelector('#checkJsApi').onclick = function () {

@@ -9,7 +9,7 @@
 </head>
 <body ontouchstart="">
   <div class="wxapi_container">
-    <div class="lbox_close wxapi_form">
+    <div class="lbox_close wxapi_form hide">
       <h3 id="menu-basic">基础接口</h3>
       <span class="desc">判断当前客户端是否支持指定JS接口</span>
       <button class="btn btn_primary" id="checkJsApi">checkJsApi</button>
@@ -41,7 +41,30 @@
       <button class="btn btn_primary" id="downloadVoice">downloadVoice</button>
     </div>
   </div>
-  <div class="menu-bar"></div>
+  <div class="record"></div>
+  <div class="bar bar-footer-secondary">
+    <div class="foot-content active" data-type="text">
+      <!-- <button class="btn btn_primary"></button> -->
+      <input type="text" placeholder="请输入...">
+    </div>
+    <div class="foot-content" data-type="images">
+      <button class="btn btn_primary">上传图片</button>
+    </div>
+    <div class="foot-content" data-type="voice">
+      <button class="btn btn_primary">录音</button>
+    </div>
+  </div>
+  <nav class="bar bar-tab">
+    <a class="tab-item external active" data-type="text">
+      <span class="tab-label">文字</span>
+    </a>
+    <a class="tab-item external" data-type="images">
+      <span class="tab-label">图片</span>
+    </a>
+    <a class="tab-item external" data-type="voice">
+      <span class="tab-label">语音</span>
+    </a>
+  </nav>
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
@@ -51,7 +74,7 @@
       appId: 'wxad0344327702ac33',
       timestamp: 1455671750,
       nonceStr: 'dS3oYjO9CgHKwXRP',
-      signature: '514b5e62d1587c9cdb4b8480d1e63500fbe7818b',
+      signature: '7b998fc1760f76edb226f079d99512464673a80e',
       jsApiList: [
         
         'translateVoice',

@@ -27,6 +27,9 @@ ol {
 a {
   text-decoration: none;
 }
+.hide{
+  display: none!important;
+}
 .label_box {
   background-color: #ffffff;
 }
@@ -189,4 +192,120 @@ h3:before {
 
 .menu-bar{
   
+}
+.bar {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    height: 2.2rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    background-color: #f7f7f8;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.bar-tab {
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    padding: 0;
+    table-layout: fixed;
+    /*position: absolute;*/
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 10;
+        background-color: #f7f7f8;
+            -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+        box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+}
+.bar:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: #e7e7e7;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+.bar-tab:after,.bar-footer-secondary:after {
+    display: none;
+}
+.bar-tab:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: auto;
+    right: auto;
+    height: 1px;
+    width: 100%;
+    background-color: #e7e7e7;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+}
+.bar-tab .tab-item {
+    position: relative;
+    display: table-cell;
+    width: 1%;
+    height: 2.5rem;
+    color: #929292;
+    text-align: center;
+    vertical-align: middle;
+}
+.bar-tab .tab-item.active, .bar-tab .tab-item:active {
+    color: #0894ec;
+} 
+.bar-footer-secondary {
+    bottom: 2.5rem;
+    height: auto;
+    /*background-color: #888;*/
+    padding: 10px 15px;
+}
+.bar-footer-secondary .btn{
+  margin-bottom: 0;
+  font-size: 14px;
+  height: 32px;
+  line-height: 32px;
+  margin: 5px auto;
+}
+
+.bar-footer-secondary input{
+  -webkit-appearance:none;
+  border:1px solid #ccc;
+  display: block;
+  width: 100%;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  font-size: 14px;
+  height: 32px;
+  line-height: 32px;
+}
+.bar-footer-secondary input:focus{
+  outline: none;
+}
+.foot-content{
+  display: none;
+}
+.foot-content.active{
+  display: block;
 }
