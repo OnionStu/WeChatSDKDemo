@@ -299,8 +299,9 @@ h3:before {
 .bar-footer-secondary input{
   -webkit-appearance:none;
   border:1px solid #ccc;
-  display: block;
-  width: 100%;
+  display: inline;
+  /*display: block;*/
+  width: 85%;
   padding-left: 14px;
   padding-right: 14px;
   border-radius: 5px;
@@ -313,6 +314,22 @@ h3:before {
   /*font-size: 14px;*/
   /*height: 32px;*/
   /*line-height: 32px;*/
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -webkit-border-top-right-radius：0;
+  -webkit-border-bottom-right-radius：0;
+}
+.btn.submit{
+  display: inline;
+  width: 15%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+input+.btn.submit {
+  border-top-left-radius: 0;
+  /*border-top-right-radius: 5px;*/
+  /*border-bottom-right-radius: 5px;*/
+  border-bottom-left-radius: 0;
 }
 .bar-footer-secondary input:focus{
   outline: none;
@@ -344,6 +361,9 @@ h3:before {
   box-sizing: border-box;
   background-color: #fff;
   padding: 10px;
+}
+.record .dialog.text{
+  display: inline-block;
 }
 .record .dialog.img{
   display: inline-block;

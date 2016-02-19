@@ -7,6 +7,13 @@ $(document).ready(function(){
     $(".foot-content.active").removeClass('active');
     $(".foot-content[data-type="+this.dataset.type+"]").addClass('active');
   })
+  $('#submitBtn').click(function(){
+    var str = $('#submitText').val()
+    if(str){
+      $('.record').append('<div class="record-row clearfix"><div class="dialog text">'+str+'</div></div>')
+      $('#submitText')[0].value = "";
+    }
+  })
 })
 
 

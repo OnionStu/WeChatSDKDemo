@@ -12,8 +12,9 @@
     <div class="record">
       <div class="record-row clearfix"><div class="dialog voice"></div></div>
       <div class="record-row clearfix"><div class="dialog img"><img src="img/pic.jpg"></div></div>
+      <div class="record-row clearfix"><div class="dialog text">sdasd</div></div>
     </div>
-    <div class="wxapi_container">
+    <div class="wxapi_container hide">
       <div class="lbox_close wxapi_form">
         <h3 id="menu-basic">基础接口</h3>
         <span class="desc">判断当前客户端是否支持指定JS接口</span>
@@ -49,8 +50,7 @@
   </div>
   <div class="bar bar-footer-secondary">
     <div class="foot-content active" data-type="text">
-      <!-- <button class="btn btn_primary"></button> -->
-      <input type="text" placeholder="请输入...">
+      <input type="text" placeholder="请输入..." id="submitText"><button class="btn btn_primary submit" id="submitBtn">发送</button>
     </div>
     <div class="foot-content" data-type="images">
       <button class="btn btn_primary" id="chooseImg">选择图片</button>
