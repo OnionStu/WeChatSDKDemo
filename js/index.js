@@ -24,6 +24,11 @@ wx.ready(function () {
       }
     });
   };
+  // 3 智能接口
+  var voice = {
+    localId: '',
+    serverId: ''
+  };
 
   // 4 音频接口
   // 4.2 开始录音
@@ -34,6 +39,37 @@ wx.ready(function () {
       }
     });
   };
+
+
+  document.querySelector('#transcription').onclick = function () {
+    console.log(this)
+    var el = this;
+    var status = el.dataset.status
+    if("start"===status){
+      wx.startRecord({
+        cancel: function () {
+          alert('用户拒绝授权录音');
+          el.dataset.status = "start";
+          el.innerHTML = "开始录音";
+        }
+      });
+      el.dataset.status = "stop";
+      el.innerHTML = "停止录音";
+    }else if("stop"===status){
+      wx.stopRecord({
+        success: function (res) {
+          voice.localId = res.localId;
+          el.dataset.status = "start";
+          el.innerHTML = "开始录音";
+          $('.record').append('<div class="record-row clearfix"><div class="dialog voice" data-vid="'+voice.localId+'"></div></div>')
+        },
+        fail: function (res) {
+          alert(JSON.stringify(res));
+        }
+      });
+    }
+  };
+
 
   // 4.3 停止录音
   document.querySelector('#stopRecord').onclick = function () {
@@ -52,9 +88,18 @@ wx.ready(function () {
     complete: function (res) {
       voice.localId = res.localId;
       alert('录音时间已超过一分钟');
+      $('.record').append('<div class="record-row clearfix"><div class="dialog voice" data-vid="'+voice.localId+'"></div></div>')
     }
   });
 
+  $('.record').on('click','.dialog.voice',function(){
+    voiceID = this.dataset.vid;
+    if(voiceID){
+      wx.playVoice({
+        localId: voiceID
+      });
+    }
+  })
   // 4.5 播放音频
   document.querySelector('#playVoice').onclick = function () {
     if (voice.localId == '') {
@@ -131,6 +176,26 @@ wx.ready(function () {
       }
     });
   };
+
+  document.querySelector('#chooseImg').onclick = function () {
+    wx.chooseImage({
+      success: function (res) {
+        console.log(res)
+        images.localId = res.localIds;
+        alert('已选择 ' + res.localIds.length + ' 张图片');
+        // var img = new Image;
+        // img.src = images.localId[0]
+
+        for(var i = 0, len = images.localId.length;i<len;i++){
+          var imgSrc = images.localId[i]
+          htmlStr = '<div class="record-row clearfix"><div class="dialog img"><img src="'+imgSrc+'"></div></div>'
+          $('.record').append(htmlStr)
+        }
+      }
+    });
+  };
+
+
 
   // 5.2 图片预览
   document.querySelector('#previewImage').onclick = function () {

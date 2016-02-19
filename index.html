@@ -8,50 +8,55 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body ontouchstart="">
-  <div class="wxapi_container">
-    <div class="lbox_close wxapi_form hide">
-      <h3 id="menu-basic">基础接口</h3>
-      <span class="desc">判断当前客户端是否支持指定JS接口</span>
-      <button class="btn btn_primary" id="checkJsApi">checkJsApi</button>
+  <div class="content">
+    <div class="record">
+      <div class="record-row clearfix"><div class="dialog voice"></div></div>
+      <div class="record-row clearfix"><div class="dialog img"><img src="img/pic.jpg"></div></div>
+    </div>
+    <div class="wxapi_container">
+      <div class="lbox_close wxapi_form">
+        <h3 id="menu-basic">基础接口</h3>
+        <span class="desc">判断当前客户端是否支持指定JS接口</span>
+        <button class="btn btn_primary" id="checkJsApi">checkJsApi</button>
 
-      <h3 id="menu-image">图像接口</h3>
-      <span class="desc">拍照或从手机相册中选图接口</span>
-      <button class="btn btn_primary" id="chooseImage">chooseImage</button>
-      <span class="desc">预览图片接口</span>
-      <button class="btn btn_primary" id="previewImage">previewImage</button>
-      <span class="desc">上传图片接口</span>
-      <button class="btn btn_primary" id="uploadImage">uploadImage</button>
-      <span class="desc">下载图片接口</span>
-      <button class="btn btn_primary" id="downloadImage">downloadImage</button>
+        <h3 id="menu-image">图像接口</h3>
+        <span class="desc">拍照或从手机相册中选图接口</span>
+        <button class="btn btn_primary" id="chooseImage">chooseImage</button>
+        <span class="desc">预览图片接口</span>
+        <button class="btn btn_primary" id="previewImage">previewImage</button>
+        <span class="desc">上传图片接口</span>
+        <button class="btn btn_primary" id="uploadImage">uploadImage</button>
+        <span class="desc">下载图片接口</span>
+        <button class="btn btn_primary" id="downloadImage">downloadImage</button>
 
-      <h3 id="menu-voice">音频接口</h3>
-      <span class="desc">开始录音接口</span>
-      <button class="btn btn_primary" id="startRecord">startRecord</button>
-      <span class="desc">停止录音接口</span>
-      <button class="btn btn_primary" id="stopRecord">stopRecord</button>
-      <span class="desc">播放语音接口</span>
-      <button class="btn btn_primary" id="playVoice">playVoice</button>
-      <span class="desc">暂停播放接口</span>
-      <button class="btn btn_primary" id="pauseVoice">pauseVoice</button>
-      <span class="desc">停止播放接口</span>
-      <button class="btn btn_primary" id="stopVoice">stopVoice</button>
-      <span class="desc">上传语音接口</span>
-      <button class="btn btn_primary" id="uploadVoice">uploadVoice</button>
-      <span class="desc">下载语音接口</span>
-      <button class="btn btn_primary" id="downloadVoice">downloadVoice</button>
+        <h3 id="menu-voice">音频接口</h3>
+        <span class="desc">开始录音接口</span>
+        <button class="btn btn_primary" id="startRecord">startRecord</button>
+        <span class="desc">停止录音接口</span>
+        <button class="btn btn_primary" id="stopRecord">stopRecord</button>
+        <span class="desc">播放语音接口</span>
+        <button class="btn btn_primary" id="playVoice">playVoice</button>
+        <span class="desc">暂停播放接口</span>
+        <button class="btn btn_primary" id="pauseVoice">pauseVoice</button>
+        <span class="desc">停止播放接口</span>
+        <button class="btn btn_primary" id="stopVoice">stopVoice</button>
+        <span class="desc">上传语音接口</span>
+        <button class="btn btn_primary" id="uploadVoice">uploadVoice</button>
+        <span class="desc">下载语音接口</span>
+        <button class="btn btn_primary" id="downloadVoice">downloadVoice</button>
+      </div>
     </div>
   </div>
-  <div class="record"></div>
   <div class="bar bar-footer-secondary">
     <div class="foot-content active" data-type="text">
       <!-- <button class="btn btn_primary"></button> -->
       <input type="text" placeholder="请输入...">
     </div>
     <div class="foot-content" data-type="images">
-      <button class="btn btn_primary">上传图片</button>
+      <button class="btn btn_primary" id="chooseImg">选择图片</button>
     </div>
     <div class="foot-content" data-type="voice">
-      <button class="btn btn_primary">录音</button>
+      <button class="btn btn_primary" id="transcription" data-status="start">开始录音</button>
     </div>
   </div>
   <nav class="bar bar-tab">
@@ -74,7 +79,7 @@
       appId: 'wxad0344327702ac33',
       timestamp: 1455671750,
       nonceStr: 'dS3oYjO9CgHKwXRP',
-      signature: '7b998fc1760f76edb226f079d99512464673a80e',
+      signature: '92e61cd670c051efd6871a684bd77cbb2233f32f',
       jsApiList: [
         
         'translateVoice',
