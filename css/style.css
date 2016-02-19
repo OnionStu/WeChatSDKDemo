@@ -353,6 +353,7 @@ input+.btn.submit {
 }
 .record-row{
   margin: 10px auto;
+  position: relative;
 }
 .record .dialog{
   border-radius: 5px;
@@ -361,13 +362,14 @@ input+.btn.submit {
   box-sizing: border-box;
   background-color: #fff;
   padding: 10px;
-}
-.record .dialog.text{
+  max-width: 90%;
   display: inline-block;
 }
-.record .dialog.img{
+/*.record .dialog.text{
+}*/
+/*.record .dialog.img{
   display: inline-block;
-}
+}*/
 .record .dialog.img img{
   max-width: 100%;
 }
@@ -388,4 +390,19 @@ input+.btn.submit {
   position: absolute;
   right: 10px;
   top: 10px;
+}
+.close{
+  display: inline-block;
+  position: absolute;
+  background-color: #F76260;
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  font-size: 12px;
+  line-height: 17px;
+  text-align: center;
+  color: #fff;
+  top: 50%;
+  margin-top: -10px;
+  margin-left: 10px;
 }

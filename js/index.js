@@ -10,9 +10,13 @@ $(document).ready(function(){
   $('#submitBtn').click(function(){
     var str = $('#submitText').val()
     if(str){
-      $('.record').append('<div class="record-row clearfix"><div class="dialog text">'+str+'</div></div>')
+      $('.record').append('<div class="record-row clearfix"><div class="dialog text">'+str+'</div><span class="close">X</span></div>')
       $('#submitText')[0].value = "";
     }
+  })
+  // $('.close').click(function(){
+  $('.record').on('click','.close',function(){
+    $(this.parentNode).remove()
   })
 })
 
@@ -68,7 +72,7 @@ wx.ready(function () {
           voice.localId = res.localId;
           el.dataset.status = "start";
           el.innerHTML = "开始录音";
-          $('.record').append('<div class="record-row clearfix"><div class="dialog voice" data-vid="'+voice.localId+'"></div></div>')
+          $('.record').append('<div class="record-row clearfix"><div class="dialog voice" data-vid="'+voice.localId+'"></div><span class="close">X</span></div>')
         },
         fail: function (res) {
           alert(JSON.stringify(res));
@@ -95,7 +99,7 @@ wx.ready(function () {
     complete: function (res) {
       voice.localId = res.localId;
       alert('录音时间已超过一分钟');
-      $('.record').append('<div class="record-row clearfix"><div class="dialog voice" data-vid="'+voice.localId+'"></div></div>')
+      $('.record').append('<div class="record-row clearfix"><div class="dialog voice" data-vid="'+voice.localId+'"></div><span class="close">X</span></div>')
     }
   });
 
@@ -195,7 +199,7 @@ wx.ready(function () {
 
         for(var i = 0, len = images.localId.length;i<len;i++){
           var imgSrc = images.localId[i]
-          htmlStr = '<div class="record-row clearfix"><div class="dialog img"><img src="'+imgSrc+'"></div></div>'
+          htmlStr = '<div class="record-row clearfix"><div class="dialog img"><img src="'+imgSrc+'"></div><span class="close">X</span></div>'
           $('.record').append(htmlStr)
         }
       }
