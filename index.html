@@ -15,6 +15,7 @@
         <i class="weui_icon_circle select" id="item_1"></i>
         <div class="dialog voice"></div>
         <i class="weui_icon_cancel close"></i>
+        <i class="weui_icon_download upload"></i>
       </div>
       <div class="record-row clearfix">
         <i class="weui_icon_circle select" id="item_2"></i>
@@ -27,39 +28,6 @@
         <i class="weui_icon_circle select" id="item_3"></i>
         <div class="dialog text">sdasd</div>
         <i class="weui_icon_cancel close"></i>
-      </div>
-    </div>
-    <div class="wxapi_container hide">
-      <div class="lbox_close wxapi_form">
-        <h3 id="menu-basic">基础接口</h3>
-        <span class="desc">判断当前客户端是否支持指定JS接口</span>
-        <button class="btn btn_primary" id="checkJsApi">checkJsApi</button>
-
-        <h3 id="menu-image">图像接口</h3>
-        <span class="desc">拍照或从手机相册中选图接口</span>
-        <button class="btn btn_primary" id="chooseImage">chooseImage</button>
-        <span class="desc">预览图片接口</span>
-        <button class="btn btn_primary" id="previewImage">previewImage</button>
-        <span class="desc">上传图片接口</span>
-        <button class="btn btn_primary" id="uploadImage">uploadImage</button>
-        <span class="desc">下载图片接口</span>
-        <button class="btn btn_primary" id="downloadImage">downloadImage</button>
-
-        <h3 id="menu-voice">音频接口</h3>
-        <span class="desc">开始录音接口</span>
-        <button class="btn btn_primary" id="startRecord">startRecord</button>
-        <span class="desc">停止录音接口</span>
-        <button class="btn btn_primary" id="stopRecord">stopRecord</button>
-        <span class="desc">播放语音接口</span>
-        <button class="btn btn_primary" id="playVoice">playVoice</button>
-        <span class="desc">暂停播放接口</span>
-        <button class="btn btn_primary" id="pauseVoice">pauseVoice</button>
-        <span class="desc">停止播放接口</span>
-        <button class="btn btn_primary" id="stopVoice">stopVoice</button>
-        <span class="desc">上传语音接口</span>
-        <button class="btn btn_primary" id="uploadVoice">uploadVoice</button>
-        <span class="desc">下载语音接口</span>
-        <button class="btn btn_primary" id="downloadVoice">downloadVoice</button>
       </div>
     </div>
   </div>
@@ -97,9 +65,8 @@
       appId: 'wxad0344327702ac33',
       timestamp: 1455671750,
       nonceStr: 'dS3oYjO9CgHKwXRP',
-      signature: 'fce26657293d0db4998c3e5bf8614f48d7a4982b',
+      signature: '65d6b0c6e81420f30b78a76d221b46559f3b858f',
       jsApiList: [
-        
         'translateVoice',
         'startRecord',
         'stopRecord',
@@ -111,12 +78,27 @@
         'uploadVoice',
         'downloadVoice',
         'chooseImage',
-        'previewImage',
-        'uploadImage',
-        'downloadImage'
       ]
   });
 </script>
+<script type="text/template" id="dialog-template">
+  <div class="record-row clearfix">
+    <i class="weui_icon_circle select" id="item_<%=id%>"></i>
+
+    <%if("text"===type){%>
+      <div class="dialog text"><%=content%></div>
+    <%}else if("img"===type){%>
+      <div class="dialog img"><img src="<%=content%>"></div>
+    <%}else if("voice"===type){%>
+      <div class="dialog voice" data-vid="<%=content%>"></div>
+    <%}%>
+    <i class="weui_icon_cancel close" data-id=<%=id%>></i>
+    <%if("voice"===type){%>
+      <i class="weui_icon_download upload"></i>
+    <%}%>
+  </div>
+</script>
 <script src="js/zepto.min.js"></script>
+<script src="js/underscore-min.js"> </script>
 <script src="js/index.js"> </script>
 </html>

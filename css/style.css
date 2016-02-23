@@ -1,4 +1,4 @@
-html {
+html,* {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-user-select: none;
@@ -363,7 +363,7 @@ input+.btn.submit {
   box-sizing: border-box;
   background-color: #fff;
   padding: 10px;
-  max-width: 90%;
+  max-width: 80%;
   vertical-align: middle;
 }
 /*.record .dialog.text{
@@ -392,14 +392,21 @@ input+.btn.submit {
   right: 10px;
   top: 10px;
 }
+.upload,
 .close{
   text-align: center;
   vertical-align: middle;
 }
+.upload:before{
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
 .select, .close{
   display: none
 }
-.record.edit .select, .record.edit .close{
+.record .upload,
+.record.edit .select,
+.record.edit .close{
   display: inline-block;
 }
 .btn.edit-opt {
