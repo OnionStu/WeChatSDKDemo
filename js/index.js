@@ -190,7 +190,7 @@ wx.ready(function () {
   // 4.8 监听录音播放停止
   wx.onVoicePlayEnd({
     complete: function (res) {
-      alert('录音（' + res.localId + '）播放结束');
+      // alert('录音（' + res.localId + '）播放结束');
     }
   });
 
@@ -244,7 +244,7 @@ wx.ready(function () {
       success: function (res) {
         console.log(res)
         images.localId = res.localIds;
-        alert('已选择 ' + res.localIds.length + ' 张图片');
+        // alert('已选择 ' + res.localIds.length + ' 张图片');
         // var img = new Image;
         // img.src = images.localId[0]
 
