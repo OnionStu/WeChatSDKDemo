@@ -5,17 +5,29 @@
   <meta charset="utf-8">
   <title>微信JS-SDK Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+  <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/0.3.0/weui.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body ontouchstart="">
   <div class="content">
     <div class="record">
       <div class="record-row clearfix">
+        <i class="weui_icon_circle select" id="item_1"></i>
         <div class="dialog voice"></div>
-        <span class="close">X</span>
+        <i class="weui_icon_cancel close"></i>
       </div>
-      <div class="record-row clearfix"><div class="dialog img"><img src="img/pic.jpg"></div></div>
-      <div class="record-row clearfix"><div class="dialog text">sdasd</div></div>
+      <div class="record-row clearfix">
+        <i class="weui_icon_circle select" id="item_2"></i>
+        <div class="dialog img">
+          <img src="img/pic.jpg"/>
+        </div>
+        <i class="weui_icon_cancel close"></i>
+      </div>
+      <div class="record-row clearfix">
+        <i class="weui_icon_circle select" id="item_3"></i>
+        <div class="dialog text">sdasd</div>
+        <i class="weui_icon_cancel close"></i>
+      </div>
     </div>
     <div class="wxapi_container hide">
       <div class="lbox_close wxapi_form">
@@ -61,6 +73,9 @@
     <div class="foot-content" data-type="voice">
       <button class="btn btn_primary" id="transcription" data-status="start">开始录音</button>
     </div>
+    <div class="foot-content" data-type="edit">
+      <button class="btn edit-opt disable move-up">上移</button><button class="btn edit-opt disable move-down">下移</button><button class="btn edit-opt exit">退出</button>
+    </div>
   </div>
   <nav class="bar bar-tab">
     <a class="tab-item external active" data-type="text">
@@ -79,10 +94,10 @@
   wx.config({
       // debug: true,
       debug: false,
-      appId: 'wxad0344327702ac33',
-      timestamp: 1455671750,
-      nonceStr: 'dS3oYjO9CgHKwXRP',
-      signature: '92e61cd670c051efd6871a684bd77cbb2233f32f',
+      appId: 'wx047f1d454c082bf0',
+      timestamp: 1456191656,
+      nonceStr: 'thvdptLsFIQIMegl',
+      signature: '1ed5401824b60c27c2330f6f0bf1ee02842c3562',
       jsApiList: [
         
         'translateVoice',

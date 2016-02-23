@@ -356,6 +356,7 @@ input+.btn.submit {
   position: relative;
 }
 .record .dialog{
+  display: inline-block;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -363,7 +364,7 @@ input+.btn.submit {
   background-color: #fff;
   padding: 10px;
   max-width: 90%;
-  display: inline-block;
+  vertical-align: middle;
 }
 /*.record .dialog.text{
 }*/
@@ -392,17 +393,23 @@ input+.btn.submit {
   top: 10px;
 }
 .close{
-  display: inline-block;
-  position: absolute;
-  background-color: #F76260;
-  width: 15px;
-  height: 15px;
-  border-radius: 15px;
-  font-size: 12px;
-  line-height: 17px;
   text-align: center;
-  color: #fff;
-  top: 50%;
-  margin-top: -10px;
-  margin-left: 10px;
+  vertical-align: middle;
+}
+.select, .close{
+  display: none
+}
+.record.edit .select, .record.edit .close{
+  display: inline-block;
+}
+.btn.edit-opt {
+  display: inline-block;
+  width: 31%;
+  margin: 0 1%;
+  background: none;
+  border: 1px solid #c0c0c0;
+  color: #929292;
+}
+.btn.edit-opt.disable {
+  color: #ccc;
 }

@@ -1,26 +1,77 @@
 $(document).ready(function(){
+  var $record = $('.record');
+  var editStatus = false;
+  var currentField = 'text';
+  var editID;
+  var list = [{
+    type: 'text',
+    content: '哈哈'
+  },{
+    type: 'voice',
+    content: '哈哈'
+  }];
   $('.bar-tab').on('click','.tab-item',function(e){
     if(this.classList.contains('active'))return;
     // console.log(this.dataset.type)
     $('.tab-item.active').removeClass('active')
     this.classList.add('active')
-    $(".foot-content.active").removeClass('active');
-    $(".foot-content[data-type="+this.dataset.type+"]").addClass('active');
+    currentField = this.dataset.type;
+    changeField(currentField);
   })
   $('#submitBtn').click(function(){
     var str = $('#submitText').val()
+    var itemTemp = 
+      '<div class="record-row clearfix">' +
+        '<i class="weui_icon_circle select"></i>' +
+        '<div class="dialog text">' + 
+          str + 
+        '</div>' +
+        '<i class="weui_icon_cancel close"></i>' +
+      '</div>'
     if(str){
-      $('.record').append('<div class="record-row clearfix"><div class="dialog text">'+str+'</div><span class="close">X</span></div>')
+      $('.record').append(itemTemp)
       $('#submitText')[0].value = "";
     }
   })
-  // $('.close').click(function(){
-  $('.record').on('click','.close',function(){
+
+  $record.on('click','.close',function(){
     $(this.parentNode).remove()
   })
+
+  $record.on('touchstart', '.dialog', function(e) {
+    var startTimeStamp = e.timeStamp;
+    $(e.currentTarget).on('touchend', function(e) {
+      var endTimeStamp = e.timeStamp;
+      console.log(startTimeStamp, endTimeStamp);
+      if (endTimeStamp - startTimeStamp >= 1000) {
+        $record.addClass('edit');
+        $('.select').removeClass('weui_icon_success');
+        changeField('edit');
+      } else {
+        console.log('fail');
+      }
+      $(e.currentTarget).off('touchend');
+    })
+    $(e.currentTarget).on('touchmove', function(e) {
+      console.log(e)
+    })
+  })
+
+  $record.on('click', '.select', function(e) {
+    $('.select').removeClass('weui_icon_success').addClass('weui_icon_circle');
+    $(e.target).removeClass('weui_icon_circle').addClass('weui_icon_success');
+  })
+
+  $('.foot-content').on('click', '.exit', function(e) {
+    $record.removeClass('edit');
+    changeField(currentField);
+  })
+
+  var changeField = function(type) {
+    $(".foot-content.active").removeClass('active');
+    $(".foot-content[data-type=" + type + "]").addClass('active');
+  }
 })
-
-
 
 wx.ready(function () {
   // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
